@@ -1,0 +1,19 @@
+{
+  "name": "resume-api.ki6i.com",
+  "version": "1.0.0",
+  "description": "api for my resume app resume.ki6i.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ki6i/resume-api.ki6i.com.git"
+  },
+  "author": "Kalina Todorova",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ki6i/resume-api.ki6i.com/issues"
+  },
+  "homepage": "https://github.com/ki6i/resume-api.ki6i.com#readme"
+}
