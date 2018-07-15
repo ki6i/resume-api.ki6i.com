@@ -1,0 +1,40 @@
+sudo: required
+language: node_js
+services:
+- docker
+branches:
+  only: master
+before_install:
+- pip install --user awscli
+- export PATH=$PATH:$HOME/.local/bin
+- export AWS_ACCESS_KEY_ID=$ECR_USER
+- export AWS_SECRET_ACCESS_KEY=$ECR_PASS
+- eval $(aws ecr get-login --region eu-west-1 --no-include-email)
+- git config --global user.email "travis@travis-ci.com"
+- git config --global user.name "Travis"
+- export PROJECT_NAME=resume-api.ki6i.com
+- export IMAGE_NAME=790341239630.dkr.ecr.eu-west-1.amazonaws.com/ki6i/$PROJECT_NAME
+- export VERSION=1.$TRAVIS_BUILD_NUMBER.0
+script:
+- docker build -t $IMAGE_NAME .
+before_deploy:
+- docker tag $IMAGE_NAME $IMAGE_NAME:latest
+- docker tag $IMAGE_NAME $IMAGE_NAME:$VERSION
+- echo $IMAGE_NAME:$VERSION > docker_info.txt
+- cat docker_info.txt
+- zip -j $PROJECT_NAME.$VERSION.zip docker_info.txt
+- docker push $IMAGE_NAME
+after_success:
+- git tag -a v$VERSION -m "$TRAVIS_COMMIT_MESSAGE"
+- git push origin --tags
+- git fetch origin
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key: ${GITHUB_TOKEN}
+  file_glob: true
+  file: $PROJECT_NAME.$VERSION.zip
+  overwrite: true
+  on:
+    tags: false
+    branch: master
