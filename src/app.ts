@@ -35,7 +35,7 @@ app.get('/contact-me', function (req, res) {
 })
 
 app.get('*', function (req, res) {
-  res.send('Not found')
+  res.send('Not found' + JSON.stringify(req))
 })
 
 app.listen(config.port, function () {
