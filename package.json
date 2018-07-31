@@ -2,15 +2,12 @@
   "name": "resume-api.ki6i.com",
   "version": "1.0.0",
   "description": "api for my resume app resume.ki6i.com",
-  "main": "./dist/app.js",
-  "engines": {
-    "node": ">=10.6.0"
-  },
   "main": "index.js",
+  "engines": {
+    "node": ">=8.11.1"
+  },
   "dependencies": {
-    "@types/node-fetch": "2.1.1",
-    "express": "4.16.3",
-    "node-fetch": "2.1.2"
+    "express": "4.16.3"
   },
   "devDependencies": {
     "rimraf": "2.6.2",
@@ -22,7 +19,6 @@
     "copy": "copyfiles config/* dist/; copyfiles -u 1 src/swagger/* dist/",
     "build": "npm run clean; tsc --project .; npm run copy"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ki6i/resume-api.ki6i.com.git"
