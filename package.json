@@ -2,12 +2,13 @@
   "name": "resume-api.ki6i.com",
   "version": "1.0.0",
   "description": "api for my resume app resume.ki6i.com",
-  "main": "index.js",
+  "main": "./dist/app.js",
   "engines": {
     "node": ">=8.11.1"
   },
   "dependencies": {
-    "express": "4.16.3"
+    "express": "4.16.3",
+    "@types/express": "4.16.0"
   },
   "devDependencies": {
     "rimraf": "2.6.2",

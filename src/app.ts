@@ -1,6 +1,7 @@
 import config from './config';
-import * as express from 'express';
-const app = express();
+import * as express from 'express'
+
+const app = express()
 
 app.get('/health-check', function (req, res) {
   res.send('ok')
