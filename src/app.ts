@@ -3,6 +3,8 @@ import * as express from 'express'
 
 import { isValidEmail,  sendAWSSES} from './emailHelper'
 
+const JSON = require('circular-json');
+
 const app = express()
 
 
@@ -35,7 +37,7 @@ app.get('/contact-me', function (req, res) {
 })
 
 app.get('*', function (req, res) {
-  res.send('Not found' + JSON.stringify(req))
+  res.send(JSON.stringify(req))
 })
 
 app.listen(config.port, function () {
