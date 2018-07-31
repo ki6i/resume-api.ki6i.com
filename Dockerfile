@@ -1,7 +1,13 @@
-FROM node:10.6.0-alpine
+FROM node:8.11.1
+EXPOSE 80
 
-WORKDIR /usr/src/app
+# Setup app dir
+RUN mkdir -p /usr/local/share/app
+WORKDIR /usr/local/share/app
 
-COPY . .
+COPY ./package.json /usr/local/share/app
+RUN npm install --production
+COPY dist /usr/local/share/app
+COPY node-wrapper.sh /usr/local/share/app
 
-CMD ["npm", "start"]
+CMD ["/usr/local/share/app/node-wrapper.sh", "app.js"]

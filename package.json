@@ -2,15 +2,14 @@
   "name": "resume-api.ki6i.com",
   "version": "1.0.0",
   "description": "api for my resume app resume.ki6i.com",
+  "main": "./dist/app.js",
   "engines": {
     "node": ">=10.6.0"
   },
   "main": "index.js",
   "scripts": {
     "watch": "tsc -watch",
-    "build": "tsc",
-    "start": "cd dist && node app.js",
-    "debug": "cd dist && node --inspect=0.0.0.0 --debug=5858 app.js"
+    "build": "tsc"
   },
   "dependencies": {
     "express": "^4.16.3",
