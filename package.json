@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "tsc -watch",
-    "build": "tsc"
+    "build": "tsc --project .;"
   },
   "dependencies": {
     "express": "^4.16.3",

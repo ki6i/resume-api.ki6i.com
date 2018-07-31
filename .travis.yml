@@ -16,6 +16,7 @@ before_install:
 - export IMAGE_NAME=790341239630.dkr.ecr.eu-west-1.amazonaws.com/ki6i/$PROJECT_NAME
 - export VERSION=1.$TRAVIS_BUILD_NUMBER.0
 script:
+- npm run build
 - docker build -t $IMAGE_NAME .
 before_deploy:
 - docker tag $IMAGE_NAME $IMAGE_NAME:latest
