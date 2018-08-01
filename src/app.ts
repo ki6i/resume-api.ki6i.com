@@ -29,7 +29,7 @@ async function sendEmail(email: string, from: string, content: string, res: expr
     }
 }
 
-app.get('/contact-me', function (req, res) {
+app.get('/resume-api/contact-me', function (req, res) {
     const email = req.query.email
     const from =  req.query.from
     const content = req.query.content
